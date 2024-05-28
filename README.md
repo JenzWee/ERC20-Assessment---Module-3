@@ -9,9 +9,11 @@ The `MyToken` contract extends the OpenZeppelin ERC20 implementation and include
 
 ## Features
 
-- **Minting:** The owner can mint new tokens to a specified address.
-- **Burning:** Any token holder can burn their own tokens.
-- **Transfers:** Standard ERC20 transfer functionality is supported.
+- **ERC-20 Standard**: Complies with the ERC-20 token standard.
+- **Initial Supply**: A fixed initial supply of 20,000,000 tokens.
+- **Minting**: Allows the contract owner to mint new tokens.
+- **Burning**: Allows any token holder to burn their tokens.
+- **Custom Transfer**: Overrides the default transfer function to add custom logic.
 
 ## Contract Details
 
@@ -20,38 +22,14 @@ The `MyToken` contract extends the OpenZeppelin ERC20 implementation and include
 - **Decimals:** 18 (default for ERC20)
 - **Initial Supply:** 20,000,000 JMW
 
+## State Variables
+- `owner`: The address of the contract owner.
+- `_initialSupply`: The initial supply of tokens.
+
 ## Functions
-
-`constructor()`
--  Description: The constructor is executed once when the contract is deployed. It sets the deployer as the contract owner and mints the initial supply of tokens to the owner's address.
--  Parameters: None
--  Events: Mints 20,000,000 JMW tokens to the owner's address.
-
-`mint(address _to, uint256 _amount)`
--  Description: Mints new tokens and assigns them to the specified address. Only the contract owner can call this function.
--  Parameters:
-    *  `_to`: Address to receive the newly minted tokens.
-    *  `_amount`: Number of tokens to mint.
--  Returns: Boolean indicating success (`true`).
--  Modifiers: `onlyOwner`
-  
-`burn(uint256 _amount)`
--  Description: Burns a specified amount of tokens from the caller's balance.
--  Parameters:
-  *  `_amount`: Number of tokens to burn.
-  *  Returns: Boolean indicating success (`true`).
-
-`transfer(address _to, uint256 _value)`
-
--  escription: Transfers tokens from the caller's address to the specified address. Overrides the `transfer` function of the ERC20 standard.
--  Parameters:
-  *  `_to`: Address to receive the tokens.
-  *  `_value`: Number of tokens to transfer.
-  *  Returns Boolean indicating success (`true`).
-
-`onlyOwer`
-- Description: Modifier to restrict function access to only the contract owner.
-- Usage: Precedes the function body to restrict access. 
+- `mint(address _to, uint256 _amount)`: Mints new tokens to the specified address. Only the owner can call this function.
+- `burn(uint256 _amount)`: Burns tokens from the caller's address.
+- `transfer(address _to, uint256 _value)`: Transfers tokens from the caller to another address.
 
 # Author
 
