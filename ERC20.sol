@@ -21,7 +21,7 @@ contract DungeonQuest is ERC20 {
     // Constructor function to initialize the token with name, symbol, and initial supply
     constructor() ERC20("DungeonQuest", "DQ") {
         owner = msg.sender;
-        uint256 initialSupply = 20000000 * (10 ** decimals());
+        uint256 initialSupply = 20000 * (10 ** decimals());
         _mint(msg.sender, initialSupply);
         _initialSupply = initialSupply;
     }
